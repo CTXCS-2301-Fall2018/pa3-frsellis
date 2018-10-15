@@ -32,7 +32,9 @@ main:
     LDR R1, [R1]     @Value of select in R1
 
     @Your modifications will begin at this point
-
+    @ Frank Ellis. PA3-2. 15oct18. code acts as a register.
+    @ R1 is compared to a number related to the item and adds
+    @the total to r3.
     CMP R1, #1       @Check for "peanuts"
     MOVEQ R3, #75    @If user entered 1 add 75 to R3
     CMP R1, #2       @Check for "chocolate"
@@ -41,7 +43,7 @@ main:
     MOVEQ R3, #90   @If user entered 3 add 90 to R3
     CMP R1, #3
 
-    LDRGE R0, =msg7    @If we get here user entered
+    LDRGT R0, =msg7    @If we get here user entered
                      @an illegal selection so print
                      @error message and terminate
     BL printf
